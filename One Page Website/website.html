@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals Website and Lightbox Image Gallery</title>
+	<script src="JavaScript_File.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+        section {
+            padding: 2rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .row > .column {
+            padding: 0 8px;
+        }
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .column {
+            float: left;
+            width: 25%;
+            max-width: 25%;
+            padding: 5px;
+        }
+        .column img {
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .column img:hover {
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .close {
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        .close:hover, .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .mySlides {
+            display: none;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        .caption-container {
+            text-align: center;
+            background-color: black;
+            padding: 2px 16px;
+            color: white;
+        }
+        .demo {
+            opacity: 0.6;
+        }
+        .demo:hover {
+            opacity: 1;
+        }
+        .hover-shadow {
+            transition: 0.3s;
+        }
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Animals Website</h1>
+    </header>
+    <section id="main-content">
+        <h2>About Animals</h2>
+        <p>Animals are multicellular eukaryotic organisms that form the biological kingdom Animalia. They include a wide variety of species, ranging from vertebrates like mammals and birds to invertebrates like insects and mollusks.</p>
+        <p>This website explores some interesting facts about different animals.</p>
+        <h3>Featured Animals</h3>
+        <div id="animal-list">
+            <!-- Images used to open the lightbox -->
+            <div class="row">
+                <div class="column">
+                    <img src="https://cdn1.byjus.com/wp-content/uploads/blog/2023/03/17131610/STIM_Happy-Baby-Elephant-Running-scaled.jpeg" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="Baby Elephant">
+                </div>
+                <div class="column">
+                    <img src="https://s3-us-west-2.amazonaws.com/s3-wagtail.biolgicaldiversity.org/images/RSBaldEagle_RobinSilver_FPWC_8_HIGHRES-hpr.max-800x800.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="Bald Eagle">
+                </div>
+                <div class="column">
+                    <img src="https://www.thoughtco.com/thmb/bwzNgsAEcKhBi49Eg7GEpWUIMg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/two-bottlenose-dolphins-leaping-from-the-water-dv1689001-5bfc567a46e0fb0026652224.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="Dolphins">
+                </div>
+                <div class="column">
+                    <img src="https://images.photowall.com/products/69237/lion-close-up.jpg?h=699&q=85" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="Lion">
+                </div>
+            </div>
+
+            <!-- The Modal/Lightbox -->
+            <div id="myModal" class="modal">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 4</div>
+                        <img src="https://cdn1.byjus.com/wp-content/uploads/blog/2023/03/17131610/STIM_Happy-Baby-Elephant-Running-scaled.jpeg" style="width:100%">
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 4</div>
+                        <img src="https://s3-us-west-2.amazonaws.com/s3-wagtail.biolgicaldiversity.org/images/RSBaldEagle_RobinSilver_FPWC_8_HIGHRES-hpr.max-800x800.jpg" style="width:100%">
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 4</div>
+                        <img src="https://www.thoughtco.com/thmb/bwzNgsAEcKhBi49Eg7GEpWUIMg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/two-bottlenose-dolphins-leaping-from-the-water-dv1689001-5bfc567a46e0fb0026652224.jpg" style="width:100%">
+                    </div>
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="https://images.photowall.com/products/69237/lion-close-up.jpg?h=699&q=85" style="width:100%">
+                    </div>
+
+                    <!-- Next/previous controls -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <!-- Caption text -->
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+                    <!-- Thumbnail image controls -->
+                    <div class="column">
+                        <img class="demo" src="https://cdn1.byjus.com/wp-content/uploads/blog/2023/03/17131610/STIM_Happy-Baby-Elephant-Running-scaled.jpeg" onclick="currentSlide(1)" alt="Baby Elephant">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://s3-us-west-2.amazonaws.com/s3-wagtail.biolgicaldiversity.org/images/RSBaldEagle_RobinSilver_FPWC_8_HIGHRES-hpr.max-800x800.jpg" onclick="currentSlide(2)" alt="Bald Eagle">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://www.thoughtco.com/thmb/bwzNgsAEcKhBi49Eg7GEpWUIMg4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/two-bottlenose-dolphins-leaping-from-the-water-dv1689001-5bfc567a46e0fb0026652224.jpg" onclick="currentSlide(3)" alt="Dolphins">
+                    </div>
+                    <div class="column">
+                        <img class="demo" src="https://images.photowall.com/products/69237/lion-close-up.jpg?h=699&q=85" onclick="currentSlide(4)" alt="Lion">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Animals Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("demo");
+            let captionText = document.getElementById("caption");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+            captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+    </script>
+</body>
+</html>
