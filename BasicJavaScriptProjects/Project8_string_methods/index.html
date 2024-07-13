@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript String and Number Methods with Animals">
+    <title>JavaScript Methods with Animals</title>
+	<link rel="stylesheet" href="C:\Users\Monica Gliga\OneDrive\Documents\GitHub\JavaProjects_JavaScript\BasicJavaScriptProjects\Project8_string_methods\styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0b3ff; /* Light purple background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #4B0082; /* Indigo background color */
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        footer {
+            background-color: #4B0082; /* Indigo background color */
+            color: white;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JavaScript String and Number Methods with Animals</h1>
+        </header>
+
+        <main>
+            <section>
+                <h2>Concat Method</h2>
+                <button onclick="concatStrings()">Concatenate Animal Names</button>
+                <p id="concatResult"></p>
+            </section>
+            <section>
+                <h2>Slice Method</h2>
+                <button onclick="sliceString()">Slice Animal Name</button>
+                <p id="sliceResult"></p>
+            </section>
+            <section>
+                <h2>ToString Method</h2>
+                <button onclick="numberToString()">Number to String</button>
+                <p id="toStringResult"></p>
+            </section>
+            <section>
+                <h2>ToPrecision Method</h2>
+                <button onclick="numberToPrecision()">Number to Precision</button>
+                <p id="toPrecisionResult"></p>
+            </section>
+            <section>
+                <h2>Animal Length</h2>
+                <button onclick="animalLength()">Get Animal Name Length</button>
+                <p id="lengthResult"></p>
+            </section>
+            <section>
+                <h2>Random Animal</h2>
+                <button onclick="randomAnimal()">Get Random Animal</button>
+                <p id="randomAnimalResult"></p>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>2024 Monica Gliga. All rights reserved.</p>
+    </footer>
+
+    <script src="C:\Users\Monica Gliga\OneDrive\Documents\GitHub\JavaProjects_JavaScript\BasicJavaScriptProjects\Project8_string_methods\JS\main.js"></script>
+</body>
+</html>
