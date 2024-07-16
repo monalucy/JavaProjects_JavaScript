@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Pizza</title>
+    <link rel="stylesheet" href="C:\Users\Monica Gliga\OneDrive\Documents\GitHub\JavaProjects_JavaScript\Pizza_Project\Pizza_CSS\Pizza_CSS.css">
+</head>
+<body>
+
+    <div class="pizza-header">
+        <img src="Images/dragon.jpg" alt="Dragon Pizza" class="pizza-image">
+        <h1 class="pizza-logo">Delicious Pizzas</h1>
+        <img src="Images/PizzaParty.jpg" alt="Pizza Party" class="pizza-image">
+    </div>
+
+    <div class="pizza-content">
+        <h2>Welcome to our Pizza Shop</h2>
+
+        <div class="pizza-options">
+            <div class="pizza-row">
+                <div class="pizza-section">
+                    <h3>Size:</h3>
+                    <select id="pizzaSize" onchange="calculateOrderTotal()">
+                        <option value="personal" data-price="6.00">Personal (£6.00)</option>
+                        <option value="medium" data-price="10.00">Medium (£10.00)</option>
+                        <option value="large" data-price="14.00">Large (£14.00)</option>
+                        <option value="extra-large" data-price="16.00">Extra Large (£16.00)</option>
+                    </select>
+                </div>
+
+                <div class="pizza-section">
+                    <h3>Crust:</h3>
+                    <label><input type="radio" name="crust" value="regular" data-price="0.00" onchange="calculateOrderTotal()"> Regular</label><br>
+                    <label><input type="radio" name="crust" value="garlic-butter" data-price="0.00" onchange="calculateOrderTotal()"> Garlic Butter</label><br>
+                    <label><input type="radio" name="crust" value="cheese-stuffed" data-price="3.00" onchange="calculateOrderTotal()"> Cheese Stuffed (+£3.00)</label><br>
+                    <label><input type="radio" name="crust" value="spicy" data-price="0.00" onchange="calculateOrderTotal()"> Spicy</label><br>
+                    <label><input type="radio" name="crust" value="house-special" data-price="0.00" onchange="calculateOrderTotal()"> House Special</label><br>
+                </div>
+
+                <div class="pizza-section">
+                    <h3>Sauce:</h3>
+                    <label><input type="radio" name="sauce" value="marinara" data-price="0.00" onchange="calculateOrderTotal()"> Marinara Sauce</label><br>
+                    <label><input type="radio" name="sauce" value="white" data-price="0.00" onchange="calculateOrderTotal()"> White Sauce</label><br>
+                    <label><input type="radio" name="sauce" value="bbq" data-price="0.00" onchange="calculateOrderTotal()"> BBQ Sauce</label><br>
+                    <label><input type="radio" name="sauce" value="none" data-price="0.00" onchange="calculateOrderTotal()"> No Sauce</label><br>
+                </div>
+            </div>
+
+            <div class="pizza-row">
+                <div class="pizza-section">
+                    <h3>Cheese:</h3>
+                    <label><input type="radio" name="cheese" value="regular" data-price="0.00" onchange="calculateOrderTotal()"> Regular</label><br>
+                    <label><input type="radio" name="cheese" value="extra" data-price="3.00" onchange="calculateOrderTotal()"> Extra Cheese (+£3.00)</label><br>
+                    <label><input type="radio" name="cheese" value="none" data-price="0.00" onchange="calculateOrderTotal()"> No Cheese</label><br>
+                </div>
+
+                <div class="pizza-section">
+                    <h3>Vegetables:</h3>
+                    <label><input type="checkbox" name="vegetable" value="tomatoes" data-price="1.00" onchange="calculateOrderTotal()"> Tomatoes (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="onions" data-price="1.00" onchange="calculateOrderTotal()"> Onions (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="olives" data-price="1.00" onchange="calculateOrderTotal()"> Olives (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="greenPeppers" data-price="1.00" onchange="calculateOrderTotal()"> Green Peppers (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="mushrooms" data-price="1.00" onchange="calculateOrderTotal()"> Mushrooms (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="pineapple" data-price="1.00" onchange="calculateOrderTotal()"> Pineapple (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="spinach" data-price="1.00" onchange="calculateOrderTotal()"> Spinach (+£1.00)</label><br>
+                    <label><input type="checkbox" name="vegetable" value="jalapeno" data-price="1.00" onchange="calculateOrderTotal()"> Jalapeno (+£1.00)</label><br>
+                </div>
+
+                <div class="pizza-section">
+                    <h3>Meats:</h3>
+                    <label><input type="checkbox" name="meat" value="pepperoni" data-price="1.00" onchange="calculateOrderTotal()"> Pepperoni (+£1.00)</label><br>
+                    <label><input type="checkbox" name="meat" value="sausage" data-price="1.00" onchange="calculateOrderTotal()"> Sausage (+£1.00)</label><br>
+                    <label><input type="checkbox" name="meat" value="beef" data-price="1.00" onchange="calculateOrderTotal()"> Beef (+£1.00)</label><br>
+                    <label><input type="checkbox" name="meat" value="chicken" data-price="1.00" onchange="calculateOrderTotal()"> Chicken (+£1.00)</label><br>
+                    <label><input type="checkbox" name="meat" value="salmon" data-price="1.00" onchange="calculateOrderTotal()"> Salmon (+£1.00)</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="pizza-footer">
+            <button onclick="submitOrder()">Submit Order</button>
+            <button onclick="cancelOrder()">Cancel Order</button>
+            <div id="orderSummary">
+                <h3>Order Summary</h3>
+                <p>Total: <span id="orderTotal">£0.00</span></p>
+            </div>
+        </div>
+
+        <div class="contact-page">
+            <h3>Contact Us</h3>
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="tel" name="telephone" placeholder="Your Telephone" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <textarea name="query" placeholder="Your Query" rows="5" required></textarea><br>
+                <button type="submit">Submit Query</button>
+            </form>
+			<form id="orderForm" action="C:\Users\Monica Gliga\OneDrive\Documents\GitHub\JavaProjects_JavaScript\Pizza_Project\PHP\Corespondance.php" method="post" style="display: none;">
+    <textarea id="orderMessage" name="message"></textarea>
+</form>
+            <div class="company-info">
+                <p>Company Number: +442477889900</p>
+                <p>Address: 25 Aylmer Parade, London, N2 9RQ</p>
+            </div>
+        </div>
+        
+<div class="pizza-footer">
+    <p class="pizza-name">Dragon Fuego Pizza</p>
+    <p>2024 Pizza Shop Inc.</p>
+
+    <div class="footer-logos">
+        <img src="Images/delicious.jpg" alt="Delicious Logo" class="footer-logo">
+        <img src="Images/pizza.jpg" alt="Pizza Logo" class="footer-logo">
+    </div>
+
+    </div>
+
+    <script src="C:\Users\Monica Gliga\OneDrive\Documents\GitHub\JavaProjects_JavaScript\Pizza_Project\Pizza_JavaScript\Pizza_JavaScript.js"></script>
+</body>
+</html>

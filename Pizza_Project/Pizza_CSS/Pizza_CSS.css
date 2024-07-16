@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: lightyellow;
+}
+
+h1, h2, h3 {
+    color: #cc9900;
+}
+
+.pizza-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+}
+
+.pizza-header img {
+    height: 100px;
+    width: auto;
+}
+
+.pizza-header .pizza-logo {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+.pizza-content {
+    padding: 20px;
+}
+
+.pizza-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pizza-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.pizza-section {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.pizza-section h3 {
+    margin-top: 0;
+}
+
+.pizza-footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pizza-footer button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pizza-footer button:hover {
+    background-color: #cc9900;
+    color: #fff;
+}
+
+#orderSummary {
+    margin-top: 20px;
+}
+
+.contact-page {
+    background-color: lightyellow;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-page form {
+    margin: 10px 0;
+}
+
+.contact-page input, 
+.contact-page textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-page button {
+    padding: 10px 20px;
+    background-color: #cc9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-page button:hover {
+    background-color: #333;
+    color: white;
+}
+
+.company-info {
+    margin-top: 20px;
+    text-align: centre;
+}
+
+.footer-logo {
+    width: 100px;
+    margin: 10px;
+}
+
+.pizza-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
