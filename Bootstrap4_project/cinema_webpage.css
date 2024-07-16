@@ -1,4 +1,5 @@
 /* Custom CSS for Academy Cinemas */
+
 body {
     background-color: #e6e6fa; /* light purple */
     padding-top: 60px; /* fix for gap between navbar and content */
@@ -7,22 +8,49 @@ body {
 #footer {
     background-color: #800080; /* dark purple */
     color: white;
+    text-align: center;
+    padding: 10px 0;
 }
 
 #about {
     background-color: #8a2be2; /* blueviolet */
     color: white;
+    text-align: center;
+    padding: 60px 0;
 }
 
 #services {
     background-color: #e6e6fa; /* lavender */
+    padding: 60px 0;
 }
 
 #pictures {
     background-color: #d8bfd8; /* thistle */
+    padding: 60px 0;
 }
 
 #contact {
     background-color: #800080; /* dark purple */
     color: white;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.picture-img {
+    height: 200px; /* Ensure all images in the grid are the same height */
+    object-fit: cover; /* Scale images to cover the container while maintaining aspect ratio */
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+}
+
+.modal-body img {
+    width: 100%;
+    height: auto;
+}
+
+.modal-body img:hover {
+    transform: scale(1.2); /* Zoom effect on hover */
 }
