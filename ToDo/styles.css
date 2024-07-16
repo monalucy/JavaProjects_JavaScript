@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc0cb; /* Pink background */
+    padding: 20px;
+}
+
+h1 {
+    color: #8a2be2; /* Light purple */
+}
+
+.todo-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 18px; /* Big font size for bird names */
+}
+
+.task {
+    display: flex;
+    align-items: center;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    color: #777;
+}
