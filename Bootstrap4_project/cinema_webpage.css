@@ -1,0 +1,28 @@
+/* Custom CSS for Academy Cinemas */
+body {
+    background-color: #e6e6fa; /* light purple */
+    padding-top: 60px; /* fix for gap between navbar and content */
+}
+
+#footer {
+    background-color: #800080; /* dark purple */
+    color: white;
+}
+
+#about {
+    background-color: #8a2be2; /* blueviolet */
+    color: white;
+}
+
+#services {
+    background-color: #e6e6fa; /* lavender */
+}
+
+#pictures {
+    background-color: #d8bfd8; /* thistle */
+}
+
+#contact {
+    background-color: #800080; /* dark purple */
+    color: white;
+}

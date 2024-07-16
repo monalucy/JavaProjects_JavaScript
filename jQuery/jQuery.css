@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cfe7cd; /* Light green background */
+    margin: 0;
+    padding-bottom: 50px; /* Ensure space for footer */
+}
+
+header {
+    background-color: #81b33b; /* Dark green header */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.animal {
+    background-color: #fff;
+    border: 1px solid #81b33b; /* Dark green border */
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.animal h2 {
+    color: #81b33b; /* Dark green heading */
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: #81b33b; /* Dark green footer */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
